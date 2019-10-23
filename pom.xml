@@ -42,7 +42,7 @@
     </build>
 
     <scm>
-        <developerConnection>scm:git:git@github.com:boleks/spg5-pet-clinic.git</developerConnection>
+        <developerConnection>scm:git:https://github.com/boleks/spg5-pet-clinic.git</developerConnection>
       <tag>spg5-pet-clinic-0.0.1</tag>
   </scm>
 
