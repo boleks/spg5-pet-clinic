@@ -4,7 +4,7 @@
 
     <groupId>com.boleks</groupId>
     <artifactId>spg5-pet-clinic</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.1</version>
 
     <modules>
         <module>pet-clinic-data</module>
@@ -15,7 +15,7 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.1.9.RELEASE</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <relativePath /> <!-- lookup parent from repository -->
     </parent>
 
     <name>spg5-pet-clinic</name>
@@ -43,6 +43,7 @@
 
     <scm>
         <developerConnection>scm:git:git@github.com:boleks/spg5-pet-clinic.git</developerConnection>
-    </scm>
+      <tag>spg5-pet-clinic-0.0.1</tag>
+  </scm>
 
 </project>
