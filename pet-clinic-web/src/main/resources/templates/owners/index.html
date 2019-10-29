@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body},'owners')}">
 
 <head>
     <meta charset="UTF-8">
@@ -10,21 +10,21 @@
 
 <h1 th:text="'List of Owners'">Owners list...</h1>
 
-<table>
+<table id="owners" class="table table-striped">
 
     <thead>
     <tr>
-        <th>Id</th>
-        <th>Ime</th>
-        <th>Prezime</th>
+        <th style="width: 150px;">Id</th>
+        <th style="width: 150px;">First name</th>
+        <th style="width: 150px;">Last name</th>
     </tr>
     </thead>
 
     <tbody>
     <tr th:each="owner : ${owners}">
         <td th:text="${owner.id}"> id</td>
-        <td th:text="${owner.firstName}"> ime</td>
-        <td th:text="${owner.lastName}"> prezime</td>
+        <td th:text="${owner.firstName}"> first</td>
+        <td th:text="${owner.lastName}"> last</td>
     </tr>
     </tbody>
 
