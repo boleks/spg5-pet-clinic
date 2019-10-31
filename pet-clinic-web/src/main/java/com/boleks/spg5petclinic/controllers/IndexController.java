@@ -12,7 +12,7 @@ public class IndexController {
         return "index";
     }
 
-    @RequestMapping({"/find"})
+    @RequestMapping({"/oups"})
     public String oooups(){
 
         return "notimplemented";
