@@ -8,6 +8,7 @@ import com.boleks.spg5petclinic.services.PetTypeService;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Set;
 
 @Service
@@ -36,16 +37,15 @@ public class OwnerMapService extends AbstractMapService<Owner, Long> implements 
     public Owner save(Owner object) {
 
         if(object != null){
-            if(object.getPets() != null){
-                object.getPets().forEach(pet ->{
-                    if(pet.getPetType() != null){
-                        if(pet.getPetType().getId()==null){
+            if (object.getPets() != null) {
+                object.getPets().forEach(pet -> {
+                    if (pet.getPetType() != null) {
+                        if (pet.getPetType().getId() == null) {
                             pet.setPetType(petTypeService.save(pet.getPetType()));
                         }
+                    } else {
+                        throw new RuntimeException("Pet Type is required");
                     }
-                    else {
-                            throw new RuntimeException("Pet type is required");
-                        }
 
                     if(pet.getId() == null){
                         Pet savedPet = petService.save(pet);
@@ -53,9 +53,10 @@ public class OwnerMapService extends AbstractMapService<Owner, Long> implements 
                     }
                 });
             }
+
             return super.save(object);
 
-        }else {
+        } else {
             return null;
         }
     }
@@ -77,6 +78,12 @@ public class OwnerMapService extends AbstractMapService<Owner, Long> implements 
                 .filter(owner -> owner.getLastName().equalsIgnoreCase(lastName))
                 .findFirst()
                 .orElse(null);
+    }
 
+    @Override
+    public List<Owner> findAllByLastNameLike(String lastName) {
+
+        //todo - impl
+        return null;
     }
 }
