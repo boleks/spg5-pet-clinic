@@ -13,17 +13,17 @@
 
     <thead>
     <tr>
-        <th>Id</th>
-        <th>Ime</th>
-        <th>Prezime</th>
+        <th>Ime i prezime</th>
+        <th>Specijalnost</th>
     </tr>
     </thead>
 
     <tbody>
     <tr th:each="vet : ${vets}">
-        <td th:text="${vet.id}"> id</td>
-        <td th:text="${vet.firstName}"> ime</td>
-        <td th:text="${vet.lastName}"> prezime</td>
+        <td th:text="${vet.firstName + ' ' + vet.lastName}"></td>
+        <td><span th:each="specialty : ${vet.specialities}"
+                  th:text="${specialty.description + ' '}"/>
+            <span th:if="${vet?.specialities?.size() == 0}">none</span></td>
     </tr>
     </tbody>
 
